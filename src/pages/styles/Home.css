@@ -1,0 +1,105 @@
+* {
+    margin: 0;
+}
+
+.main {
+    display: flex;
+    flex-direction: row;
+}
+
+.heading {
+    position: sticky;
+    padding: 20px;
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
+.notes-list {
+    max-height: 95vh;
+    overflow-y: auto;
+    width: 30%;
+}
+
+.right-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #DAE5F5;
+    height: 100vh;
+    width: 70%;
+}
+
+.hidden {
+    display: none;
+}
+
+.bg-section {
+    margin-top: 70px;
+}
+
+.add-btn {
+    position: fixed;
+    left: 24%;
+    bottom: 20px;
+    cursor: pointer;
+    width: 80px;
+    height: 80px;
+    border: 2px solid #16008B;
+    color: white;
+    border-radius: 50%;
+    background-color: #16008B;
+    font-size: 60px;
+    cursor: pointer;
+}
+@media screen and (max-width: 768px) {
+    .add-btn {
+        left: auto;
+        right: 6%;
+    }
+
+    .right-section{
+        display: none;
+    }
+
+    .notes-list{
+        width: 100%;
+    }
+
+}
+
+.group-name {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    height: 10vh;
+    padding: 10px;
+    border-radius: 15px;
+    font-size: large;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.profile-picture {
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+}
+
+.group-name:hover {
+    background: #2F2F2F2B;
+}
+
+* {
+    scrollbar-width: thin;
+    scrollbar-color: grey white;
+}

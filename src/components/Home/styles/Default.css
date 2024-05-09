@@ -1,0 +1,21 @@
+.encryption {
+    position: absolute;
+    right: 30vw;
+    bottom: 15px;
+    display: flex;
+    flex-direction: row;
+    gap: 1vw;
+}
+
+.bgImage{
+    width: 100%;
+}
+
+.bg-section {
+    margin-top: 70px;
+}
+
+* {
+    margin: 0;
+
+}
