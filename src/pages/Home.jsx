@@ -5,7 +5,7 @@ import { AddNotes, Default, Notes } from '../components';
 function Home() {
     const [open, setOpen] = useState(false);
     const [noteGroups, setNoteGroups] = useState([]);
-    const [currentGroupIndex, setCurrentGroupIndex] = useState(null);
+    const [notesIndex, setNotesIndex] = useState(null);
 
     
     useEffect(() => {
@@ -13,7 +13,7 @@ function Home() {
         setNoteGroups(storedNotes);
     }, []);
 
-    const saveNoteGroupsToLocalStorage = (noteGroups) => {
+    const addToLocalStorage = (noteGroups) => {
         localStorage.setItem('noteGroups', JSON.stringify(noteGroups));
     };
 
@@ -28,18 +28,18 @@ function Home() {
     const handleCreateGroup = (groupName, color) => {
         const newNoteGroups = [...noteGroups, { name: groupName, notes: [], color }];
         setNoteGroups(newNoteGroups);
-        saveNoteGroupsToLocalStorage(newNoteGroups);
+        addToLocalStorage(newNoteGroups);
     };
 
     const handleGroupClick = (index) => {
-        setCurrentGroupIndex(index);
+        setNotesIndex(index);
     };
 
     const handleAddNote = (note) => {
         const updatedGroups = [...noteGroups];
-        updatedGroups[currentGroupIndex].notes.push(note);
+        updatedGroups[notesIndex].notes.push(note);
         setNoteGroups(updatedGroups);
-        saveNoteGroupsToLocalStorage(updatedGroups);
+        addToLocalStorage(updatedGroups);
     };
 
     return (
@@ -63,7 +63,7 @@ function Home() {
             </div>
 
             <div className='right-section'>
-                {currentGroupIndex === null ? <Default /> : <Notes groupName={noteGroups[currentGroupIndex].name} notes={noteGroups[currentGroupIndex].notes} onAddNote={handleAddNote} groupColor={noteGroups[currentGroupIndex].color} />}
+                {notesIndex === null ? <Default /> : <Notes groupName={noteGroups[notesIndex].name} notes={noteGroups[notesIndex].notes} onAddNote={handleAddNote} groupColor={noteGroups[notesIndex].color} />}
             </div>
         </div>
     );
